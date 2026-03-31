@@ -5,7 +5,7 @@ const generateToken = (res, userId) => {
     expiresIn: "30d",
   });
 
-  // Set JWT as an HTTP-Only Cookie
+  // Set JWT as an HTTP-Only Cookie (works for same-origin)
   const isProduction = process.env.NODE_ENV === "production";
   res.cookie("jwt", token, {
     httpOnly: true,
@@ -14,6 +14,7 @@ const generateToken = (res, userId) => {
     maxAge: 30 * 24 * 60 * 60 * 1000,
   });
 
+  // Also return token so frontend can store it for cross-origin requests
   return token;
 };
 
