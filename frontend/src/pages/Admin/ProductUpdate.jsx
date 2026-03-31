@@ -65,7 +65,7 @@ const AdminProductUpdate = () => {
       });
       setImage(res.image);
     } catch (err) {
-      toast.success("Item added successfully", {
+      toast.error(err?.data?.message || err?.error || "Image upload failed", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 2000,
       });
