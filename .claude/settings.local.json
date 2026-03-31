@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /d/web_projects/sirius_ecommerce -name .env* -o -name *.config.*)",
+      "Bash(find /d/web_projects/sirius_ecommerce -type f \\\\\\(-name *.yml -o -name *.yaml -o -name Dockerfile -o -name .dockerignore \\\\\\))"
+    ]
+  }
+}
