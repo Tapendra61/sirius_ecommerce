@@ -2,11 +2,16 @@
 
 A full-stack e-commerce application built with the MERN stack (MongoDB, Express, React, Node.js). Features a complete shopping experience with product browsing, cart management, order processing, PayPal payment integration, and an admin dashboard for managing the store.
 
+## Demo
+
+![Sirius E-Commerce Demo](demo/demo.gif)
+
 ## Tech Stack
 
 **Frontend:** React 18, Redux Toolkit (RTK Query), React Router 6, Tailwind CSS, Vite
 **Backend:** Node.js, Express.js, MongoDB (Mongoose), JWT Authentication
 **Payments:** PayPal
+**Image Storage:** Cloudinary
 **Charts:** ApexCharts (Admin Dashboard)
 
 ## Features
@@ -25,7 +30,7 @@ A full-stack e-commerce application built with the MERN stack (MongoDB, Express,
 ### Admin
 - Dashboard with sales analytics and charts
 - User management (view, update roles, delete)
-- Product management (CRUD with image upload)
+- Product management (CRUD with image upload via Cloudinary)
 - Category management
 - Order management (view all, mark as delivered)
 
@@ -34,7 +39,7 @@ A full-stack e-commerce application built with the MERN stack (MongoDB, Express,
 ```
 sirius_ecommerce/
   backend/
-    config/          # Database connection
+    config/          # Database connection and Cloudinary config
     controllers/     # Route handlers
     middlewares/      # Auth and admin middleware
     models/          # Mongoose schemas (User, Product, Category, Order)
@@ -56,6 +61,7 @@ sirius_ecommerce/
 
 - Node.js 18+
 - MongoDB (local or MongoDB Atlas)
+- Cloudinary account (free tier available)
 - PayPal Developer account (optional, for payments)
 
 ## Getting Started
@@ -88,6 +94,9 @@ JWT_SECRET=your_jwt_secret_here
 NODE_ENV=development
 PAYPAL_CLIENT_ID=your_paypal_client_id
 FRONTEND_URL=http://localhost:5173
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
 ### 4. Run the application
@@ -149,7 +158,7 @@ Full CRUD (Admin only)
 ### Uploads - `/api/upload`
 | Method | Endpoint | Access | Description |
 |--------|----------|--------|-------------|
-| POST | `/` | Admin | Upload product image |
+| POST | `/` | Admin | Upload product image (Cloudinary) |
 
 ## Deployment
 
@@ -169,6 +178,9 @@ This project is configured for split deployment:
 | JWT_SECRET | A strong random secret |
 | FRONTEND_URL | Your Vercel deployment URL |
 | PAYPAL_CLIENT_ID | Your PayPal client ID |
+| CLOUDINARY_CLOUD_NAME | Your Cloudinary cloud name |
+| CLOUDINARY_API_KEY | Your Cloudinary API key |
+| CLOUDINARY_API_SECRET | Your Cloudinary API secret |
 
 **Vercel (Frontend):**
 | Variable | Value |
